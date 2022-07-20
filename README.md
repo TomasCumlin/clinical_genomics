@@ -1,0 +1,7 @@
+# clinical_genomics
+
+nc_code_bash.sh is to be used as plugin in Geneious
+
+nc_code_bash.sh runs np_code_update.sh
+
+np_code_update.sh is where all the Nextclade commands are located.
