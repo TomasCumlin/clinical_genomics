@@ -5,6 +5,11 @@ Functioning nextclade files:
 For Linux:
   nc_code_bash.sh is to be used as plugin in Geneious  
   nc_code_bash.sh runs np_code_update.sh, which is where all nextclade commands are located.
+  
+  Python version:
+    nc_terminal.py 
+    This file runs in the terminal but not as plugin in Genious on the linux computer. The script fails to activate the conda environment.
+  
 
 For Windows:
   nextclade_windows.bat
