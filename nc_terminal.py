@@ -6,11 +6,15 @@ import sys
 
 infile=sys.argv[1]
 batch_name=sys.argv[2]
-output="/home/ete03/.geneious2022.1data/transient/1661157478899/x"
+output="output/"
 
-get_data="nextclade dataset get --name=sars-cov-2 --output-dir=data/sars-cov-2"
-run_nextclade="nextclade run --input-dataset data/sars-cov-2 --output-all={} --output-tsv={}.tsv --output-basename={} {}".format(output, batch_name, batch_name, infile)
+get_data=["/home/ete03/miniconda3/bin/nextclade", "dataset", "get", "--name=sars-cov-2", "--output-dir=data/sars-cov-2"]
+run_nextclade=["/home/ete03/miniconda3/bin/nextclade", "run", "--input-dataset", "data/sars-cov-2", "--output-all={}".format(output), "--output-tsv={}.tsv".format(batch_name), "--output-basename={}".format(batch_name), "{}".format(infile)]
 
-os.popen(get_data)
+output,error  = subprocess.Popen(
+                    get_data, universal_newlines=True,
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 
-os.popen(run_nextclade)
+output,error  = subprocess.Popen(
+                    run_nextclade, universal_newlines=True,
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
