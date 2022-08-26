@@ -1,21 +1,20 @@
 # clinical_genomics
 
-Functioning nextclade files:
+#Functioning nextclade files:
 
-For Linux:
-  nc_code_bash.sh is to be used as plugin in Geneious  
-  nc_code_bash.sh runs np_code_update.sh, which is where all nextclade commands are located.
+##For Linux:
+        nc_code_bash.sh is to be used as plugin in Geneious  
+        nc_code_bash.sh runs np_code_update.sh, which is where all nextclade commands are located.
   
-  Python version:
-    nc_terminal.py 
-    This file runs in the terminal but not as plugin in Genious on the linux computer. The script fails to activate the conda environment.
+ ##Python version:
+        nc_terminal.py 
   
 
-For Windows:
-  nextclade_windows.bat
+##For Windows:
+        nextclade_windows.bat
 
-Old files, not to be used: 
+##Old files, not to be used: 
   nc_code.sh (older version of np_code_update.sh) 
   nextclade_winodws.ps1 (for Windows powershell)
   
-  Updated 2022-08-18
+  #Updated 2022-08-18
