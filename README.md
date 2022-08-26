@@ -14,7 +14,9 @@
         nextclade_windows.bat
 
 ## Old files, not to be used: 
-  nc_code.sh (older version of np_code_update.sh) 
-  nextclade_winodws.ps1 (for Windows powershell)
+        nc_code.sh (older version of np_code_update.sh) 
+        nextclade_winodws.ps1 (for Windows powershell)
   
-  # Updated 2022-08-18
+
+
+# Updated 2022-08-18
