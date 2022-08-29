@@ -12,6 +12,10 @@
 
 ## For Windows:
         nextclade_windows.bat
+        
+        OR
+        
+        nextclade_windows_py.bat to run nextclade_windows.py
 
 ## Old files, not to be used: 
         nc_code.sh (older version of np_code_update.sh) 
