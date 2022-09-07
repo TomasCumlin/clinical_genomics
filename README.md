@@ -17,6 +17,12 @@
         
         nextclade_windows_py.bat to run nextclade_windows.py
 
+## To print nextclade version and database tag: 
+        version.py
+        This script prints the current nextclade version and the tag provided from the database's json-file.
+        This is meant to be implemented into the main scripts.
+
+
 ## Old files, not to be used: 
         nc_code.sh (older version of np_code_update.sh) 
         nextclade_winodws.ps1 (for Windows powershell)
