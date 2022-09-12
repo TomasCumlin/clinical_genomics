@@ -15,7 +15,7 @@
         
         OR
         
-        nextclade_windows_py.bat to run nextclade_windows.py
+        nextclade_windows_py.bat to run nextclade.py
 
 ## To print nextclade version and database tag: 
         version.py
