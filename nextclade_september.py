@@ -27,10 +27,10 @@ output=path+"output/"   #Path to where your results should be saved.
 
 # Path to where you want to store your downloaded database.
 # If you already have a database up-to-date, this step will be skipped.
-database_path=path+"data/sars-cov-2/" 
+database_path=path+"data/sars-cov-2" 
 
-get_data=[nextclade_path, "dataset", "get", "--name=sars-cov-2", "--output-dir=data/sars-cov-2"]
-run_nextclade=[nextclade_path, "run", "--input-dataset", "data/sars-cov-2", "--output-all={}".format(output), "--output-tsv={}.tsv".format(batch_name), "--output-basename={}".format(batch_name), "{}".format(infile)]
+get_data=[nextclade_path, "dataset", "get", "--name=sars-cov-2", "--output-dir={}".format(database_path)]
+run_nextclade=[nextclade_path, "run", "--input-dataset", "{}".format(database_path), "--output-all={}".format(output), "--output-tsv={}.tsv".format(batch_name), "--output-basename={}".format(batch_name), "{}".format(infile)]
 
 
 output_dataset,error  = subprocess.Popen(
@@ -44,7 +44,7 @@ output_results,error  = subprocess.Popen(
 # Save software and database info
 
 #open the json-file
-f = open(database_path+"tag.json")
+f = open(database_path+"/tag.json")
 
 #convert the json-file to a dict
 data = json.load(f)
