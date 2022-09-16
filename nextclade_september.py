@@ -3,22 +3,26 @@
 # This script runs the nextclade analysis on sequencing data. 
 # It can either be directily run in the terminal (command: python nc_terminal.py <sequence data> <batch name>)
 # or it can be used as a plugin in Geneious. 
-# Variables path and nextclade_path must be updated before usage.
+
+# Variables to be updates for each individual computer:
+    # 1. path (leave as an empty string if this will be used as a Geneious plugin)
+    # 2. output_permanent
+    # 3. nextclade_path
 
 import os
 import subprocess
 import sys
 import json
-from datetime import date
 import csv
-
-today = str(date.today())
 
 infile=sys.argv[1]      # The selected sequences to analyse in Geneious
 batch_name=sys.argv[2]  # Name of the batch. Can be modified in Geneious.
 
-# Update the path depending on where the data should be stored.
-path="/home/ete03/Documents/clinical_genomics/"
+# If this is to be run in genious, variable "path" should be left as an empty string. If run in terminal, update it to where you want everything to be run.
+path=""
+
+# This is the path where all nextclade's output files should be saved.
+output_permanent = "/home/ete03/Documents/clinical_genomics/output/"
 
 # Path to where nextclade is installed.
 nextclade_path="/home/ete03/miniconda3/bin/nextclade"
@@ -30,7 +34,7 @@ output=path+"output/"   #Path to where your results should be saved.
 database_path=path+"data/sars-cov-2" 
 
 get_data=[nextclade_path, "dataset", "get", "--name=sars-cov-2", "--output-dir={}".format(database_path)]
-run_nextclade=[nextclade_path, "run", "--input-dataset", "{}".format(database_path), "--output-all={}".format(output), "--output-tsv={}.tsv".format(batch_name), "--output-basename={}".format(batch_name), "{}".format(infile)]
+run_nextclade=[nextclade_path, "run", "--in-order", "--input-dataset", "{}".format(database_path), "--output-all={}".format(output), "--output-basename={}".format(batch_name), "{}".format(infile)]
 
 
 output_dataset,error  = subprocess.Popen(
@@ -40,6 +44,7 @@ output_dataset,error  = subprocess.Popen(
 output_results,error  = subprocess.Popen(
                     run_nextclade, universal_newlines=True,
                     stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+
 
 # Save software and database info
 
@@ -72,3 +77,11 @@ with open('{}{}.csv'.format(output,batch_name), 'r') as csvfile:
              writer.writerow(row)
          
 f.close()
+
+# Copy all files from the temporary Geneious file to a new permanent file.
+copy_files=["cp", "-a", "{}.".format(output), output_permanent]
+
+
+output_dataset,error  = subprocess.Popen(
+                    copy_files, universal_newlines=True,
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
