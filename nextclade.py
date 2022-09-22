@@ -6,7 +6,7 @@
 
 # Variables to be updates for each individual computer:
     # 1. path (leave as an empty string if this will be used as a Geneious plugin)
-    # 2. output_permanent
+    # 2. output_path
     # 3. nextclade_path
 
 import os
@@ -14,19 +14,19 @@ import subprocess
 import sys
 import json
 import csv
-from random import randrange
-
+from datetime import date
+from os import listdir
+from os.path import isfile, join
 
 def terminal(var_name):
-    subprocess.Popen(var_name, universal_newlines=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    output, error= subprocess.Popen(var_name, universal_newlines=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    return output
 
 
-#create a unique id in order to avoid overwriting
-id=""
+# obtain today's date for the folder name
+today = str(date.today())
+today = today.replace("-", "_")
 
-for i in range(4):
-    id += str(randrange(10))
-    
 
 infile=sys.argv[1]      # The selected sequences to analyse in Geneious
 batch_name=sys.argv[2]  # Name of the batch. Can be modified in Geneious.
@@ -35,7 +35,22 @@ batch_name=sys.argv[2]  # Name of the batch. Can be modified in Geneious.
 path=""
 
 # This is the path where all nextclade's output files should be saved.
-output_permanent = "/home/ete03/Documents/clinical_genomics/nextclade_analysis_{}/".format(id)
+output_path="/home/ete03/Documents/clinical_genomics/"
+nextclade_name= "nextclade_analysis_{}".format(today)
+
+# get a list of folders present in output_path
+onlyfiles = [f for f in listdir(output_path) if os.path.isdir(join(output_path, f))]
+
+counter = 1
+
+#if nextcalde_name already exists, the name is updated with a counter until it's unique. 
+while nextclade_name in onlyfiles:
+    nextclade_name="nextclade_analysis_{}_{}".format(today,str(counter))
+    counter +=1
+    onlyfiles = [f for f in listdir(output_path) if os.path.isdir(join(output_path, f))]
+
+# the path to where all files will end up
+output_permanent = output_path+nextclade_name
 
 # Path to where nextclade is installed.
 nextclade_path="/home/ete03/miniconda3/bin/nextclade"
@@ -52,7 +67,7 @@ run_nextclade=[nextclade_path, "run", "--in-order", "--input-dataset", "{}".form
 
 terminal(get_data)
 terminal(run_nextclade)
-terminal(get_data_permanent)
+#terminal(get_data_permanent)
 
 
 # Save software and database info
@@ -88,7 +103,7 @@ f.close()
 r.close()
 
 # Copy all files from the temporary Geneious file to a new permanent file.
-copy_files=["cp", "-a", "{}.".format(output), "{}output".format(output_permanent)]
+copy_files=["cp", "-a", "{}.".format(output), "{}".format(output_permanent)]
 
 
 terminal(copy_files)
