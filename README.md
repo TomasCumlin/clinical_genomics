@@ -10,13 +10,13 @@
         nextclade_windows.bat
 
  ### Python version:
-        nextclade_september.py (can be run directly as a Geneious plugin on linux, but needs nextclade_windows_python.bat to operate on Windows)
+        nextclade.py (can be run directly as a Geneious plugin on linux, but needs nextclade_windows_python.bat to operate on Windows)
         Should be possible to use on all operating system, given that pathways are updated for computer in use.
 
 
 
 ## Old files, not to be used: 
-        nextclade.py - older version of nextclade_september.py. The older version will not create a CSV including nextclade version and database version.
+        nextclade_september.py
   
 
 
