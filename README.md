@@ -2,16 +2,21 @@
 
 # Functioning nextclade files:
 
-## For Linux:
+## For Linux (using bash and shell):
         nc_code_bash.sh is to be used as plugin in Geneious  
         nc_code_bash.sh runs nextclade.sh, which is where all nextclade commands are located.
 
-## For Windows:
+## For Windows (using batch):
         nextclade_windows.bat
 
  ### Python version:
-        nextclade.py (can be run directly as a Geneious plugin on linux, but needs nextclade_windows_python.bat to operate on Windows)
-        Should be possible to use on all operating system, given that pathways are updated for computer in use.
+        Linux: nextclade.py
+        Windows: nextclade_windows.py & nextclade_windows_python.bat 
+        
+        The python-files for Linux and Windows are almost the same, besides these differences:
+        * nextclade_windows.py must be run via nextclade_windows_python.bat. I.e. nextclade_windows_python.bat is used as plugin in Geneious
+        * Paths need to be updated for each individual computer
+        * nextclade_windows.py uses .replace("\n", "") for the nextclade version in order for nextclade_final.tsv to display columns correctly.
 
 
 
@@ -20,4 +25,4 @@
   
 
 
-# Updated 2022-09-15
+# Updated 2022-09-23
