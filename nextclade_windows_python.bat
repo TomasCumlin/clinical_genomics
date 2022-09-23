@@ -3,4 +3,4 @@
 :: Update path to nextclade.py
 :: Ensure all paths in nextclade.py are correct
 
-C:\Users\KMB\AppData\Local\Programs\Python\Python310\python C:\Users\KMB\TomasC\nextclade.py %1 %2
+C:\Users\KMB\AppData\Local\Programs\Python\Python310\python C:\Users\KMB\TomasC\nextclade_windows.py %1 %2
