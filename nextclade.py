@@ -1,4 +1,4 @@
-#!/home/ete03/anaconda3/bin/python
+#! <path to your Python installation directory> 
 
 # This script runs the nextclade analysis on sequencing data. 
 # It can either be directily run in the terminal (command: python nc_terminal.py <sequence data> <batch name>)
