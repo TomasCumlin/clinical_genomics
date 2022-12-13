@@ -2,6 +2,9 @@
 
 # Functioning nextclade files:
 
+## Completed gplugin files ready to use:
+        Linux: nextclade_linux_1.0.gplugin
+
 ## For Linux (using bash and shell):
         nc_code_bash.sh is to be used as plugin in Geneious  
         nc_code_bash.sh runs nextclade.sh, which is where all nextclade commands are located.
@@ -25,4 +28,4 @@
   
 
 
-# Updated 2022-09-23
+# Updated 2022-12-13
