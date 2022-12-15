@@ -4,6 +4,7 @@
 
 ## Completed gplugin files ready to use:
         Linux: nextclade_linux_1.0.gplugin
+        Windows: nextclade_windows_1.0.gplugin
 
 ## For Linux (using bash and shell):
         nc_code_bash.sh is to be used as plugin in Geneious  
@@ -28,4 +29,4 @@
   
 
 
-# Updated 2022-12-13
+# Updated 2022-12-15
