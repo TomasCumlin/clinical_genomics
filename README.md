@@ -26,6 +26,7 @@
 
 ## Old files, not to be used: 
         nextclade_september.py
+        nextclade_windows_new_1.0.gplugin (Works, but requires more manual inputs from the user)
   
 
 
