@@ -4,6 +4,9 @@
 
 ## Completed gplugin files ready to use:
         Linux: nextclade_linux_1.0.gplugin
+        
+        Linux & Mac: nextclade_linux_mac_1.0.gplugin
+        
         Windows: nextclade_windows_1.0.gplugin
 
 ## For Linux (using bash and shell):
